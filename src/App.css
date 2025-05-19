@@ -1,0 +1,141 @@
+ /* Global Styles */
+:root {
+    --primary-color: #bfa046;
+  --secondary-color: #d4b96a;
+  --text-color: #333;
+  --light-bg: #f8f9fa;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
+  }
+  
+  /* Custom Primary Color */
+  .text-primary-custom {
+    color: var(--primary-color) !important;
+  }
+  
+  .bg-primary-custom {
+    background-color: var(--primary-color) !important;
+  }
+  
+  .btn-primary-custom {
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+    color: #fff !important;
+  }
+  
+  .btn-primary-custom:hover {
+    background-color: var(--secondary-color) !important;
+    border-color: var(--secondary-color) !important;
+    color: #fff !important;
+  }
+  
+  /* Layout */
+  .page-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  main {
+    flex: 1;
+  }
+  
+  /* Hero Section */
+  .hero-banner {
+    position: relative;
+    padding: 100px 0;
+    color: white;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .hero-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 0;
+  }
+  
+  /* Sections */
+  .section-padding {
+    padding: 80px 0;
+  }
+  
+  .section-heading {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  
+  .section-heading h2 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+  }
+  
+  /* Cards */
+  .card {
+    transition: transform 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+  }
+  
+  /* Portfolio */
+  .portfolio-card {
+    overflow: hidden;
+  }
+  
+  .portfolio-img-wrapper {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .portfolio-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .portfolio-img-wrapper:hover .portfolio-overlay {
+    opacity: 1;
+  }
+  
+  .overlay-content {
+    color: white;
+    text-align: center;
+  }
+  
+  /* Buttons */
+  .cta-button {
+    padding: 12px 30px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .section-padding {
+      padding: 50px 0;
+    }
+    
+    .hero-banner {
+      padding: 60px 0;
+    }
+  } 
