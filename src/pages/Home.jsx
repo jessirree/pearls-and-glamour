@@ -37,7 +37,8 @@ const Home = () => {
         }}
       >
         <Container className="text-center position-relative" style={{ zIndex: 1 }}>
-          <h1 className="display-3 fw-bold mb-4">Your Event | Our Precision</h1>
+          <h1 className="display-3 fw-bold mb-4">Pearls and Glamour Events</h1>
+          <h2 className="display-6 fw-bold mb-4">Your Event | Our Precision</h2>
           <p className="lead mb-5">
           We create bespoke and luxury event experiences with elegance, precision and flawless execution!
           </p>
