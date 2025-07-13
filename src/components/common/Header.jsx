@@ -3,6 +3,13 @@ import { Container, Nav, Navbar } from 'react-bootstrap';
 import { Link, NavLink } from 'react-router-dom';
 
 const Header = () => {
+  const handleWhatsAppBooking = () => {
+    const message = "Hello! I'm interested in booking an event with Pearls & Glamour. Could you please provide more information about your services and pricing?";
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/254794788702?text=${encodedMessage}`;
+    window.open(whatsappUrl, '_blank');
+  };
+
   return (
     <Navbar bg="light" expand="lg" className="shadow-sm" sticky="top">
       <Container>
@@ -30,7 +37,11 @@ const Header = () => {
             <Nav.Link as={NavLink} to="/contact">
               Contact
             </Nav.Link>
-            <Nav.Link as={NavLink} to="/booking" className="ms-2 btn btn-primary-custom text-white">
+            <Nav.Link 
+              className="ms-2 btn btn-primary-custom text-white"
+              onClick={handleWhatsAppBooking}
+              style={{ cursor: 'pointer' }}
+            >
               Book Now
             </Nav.Link>
           </Nav>

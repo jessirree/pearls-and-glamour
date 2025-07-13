@@ -1,59 +1,7 @@
-import React, { useState } from 'react';
-import { Container, Row, Col, Form, Button, Card, Alert } from 'react-bootstrap';
+import React from 'react';
+import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 
 const Contact = () => {
-  // State for form
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
-  });
-
-  // Form validation state
-  const [validated, setValidated] = useState(false);
-  
-  // Submission status
-  const [submitting, setSubmitting] = useState(false);
-  const [showSuccess, setShowSuccess] = useState(false);
-
-  // Handle input changes
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
-
-  // Handle form submission
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const form = e.currentTarget;
-    
-    if (form.checkValidity() === false) {
-      e.stopPropagation();
-      setValidated(true);
-      return;
-    }
-    
-    setValidated(true);
-    setSubmitting(true);
-
-    // Simulate form submission
-    setTimeout(() => {
-      setSubmitting(false);
-      setShowSuccess(true);
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: '',
-      });
-      setValidated(false);
-    }, 1500);
-  };
-
   return (
     <div className="page-container">
       {/* Contact Header */}
@@ -68,16 +16,16 @@ const Contact = () => {
         </Container>
       </section>
 
-      {/* Contact Information and Form */}
+      {/* Contact Information */}
       <section className="section-padding">
         <Container>
           <Row className="g-4">
-            <Col lg={5} className="mb-4 mb-lg-0">
+            <Col lg={6} className="mb-4 mb-lg-0">
               <div className="contact-info pe-lg-4">
                 <h3 className="mb-4 text-primary-custom">Get In Touch</h3>
                 <p className="mb-4">
                   Have questions about our services or want to check availability for your event date? 
-                  Contact us directly or fill out the form, and we'll get back to you as soon as possible.
+                  Contact us directly via email or WhatsApp, and we'll get back to you as soon as possible.
                 </p>
 
                 <div className="mb-4">
@@ -101,7 +49,7 @@ const Contact = () => {
                       <i className="bi bi-envelope-fill text-primary-custom me-3 fs-5"></i>
                       <div>
                         <span className="fw-bold">Email:</span><br />
-                        pearlsandglamour2@gmail.com
+                        pearlsandglamour@gmail.com
                       </div>
                     </li>
                     <li className="mb-3 d-flex">
@@ -122,7 +70,7 @@ const Contact = () => {
                     <a href="https://facebook.com/pearls.n.glamour.events" target="_blank" rel="noreferrer" className="social-icon">
                       <i className="bi bi-facebook fs-3 text-primary-custom"></i>
                     </a>
-                    <a href="https://instagram.com/pearls_and_glamour_events" target="_blank" rel="noreferrer" className="social-icon">
+                    <a href="https://instagram.com/pearlsnglamourevents" target="_blank" rel="noreferrer" className="social-icon">
                       <i className="bi bi-instagram fs-3 text-primary-custom"></i>
                     </a>
                     <a href="https://wa.me/254794788702" target="_blank" rel="noreferrer" className="social-icon">
@@ -136,101 +84,39 @@ const Contact = () => {
               </div>
             </Col>
 
-            <Col lg={7}>
-              <Card className="shadow-sm border-0">
-                <Card.Body className="p-4 p-md-5">
-                  <h3 className="mb-4 text-primary-custom">Send Us a Message</h3>
-                  {showSuccess && (
-                    <Alert 
-                      variant="success" 
-                      onClose={() => setShowSuccess(false)} 
-                      dismissible
-                    >
-                      <Alert.Heading>Message Sent!</Alert.Heading>
-                      <p>
-                        Thank you for reaching out to us. We'll respond to your inquiry shortly.
-                      </p>
-                    </Alert>
-                  )}
-                  <Form noValidate validated={validated} onSubmit={handleSubmit}>
-                    <Row>
-                      <Col md={6} className="mb-3">
-                        <Form.Group controlId="name">
-                          <Form.Label>Your Name</Form.Label>
-                          <Form.Control
-                            required
-                            type="text"
-                            name="name"
-                            placeholder="Enter your name"
-                            value={formData.name}
-                            onChange={handleChange}
-                          />
-                          <Form.Control.Feedback type="invalid">
-                            Please provide your name.
-                          </Form.Control.Feedback>
-                        </Form.Group>
-                      </Col>
-                      <Col md={6} className="mb-3">
-                        <Form.Group controlId="email">
-                          <Form.Label>Email Address</Form.Label>
-                          <Form.Control
-                            required
-                            type="email"
-                            name="email"
-                            placeholder="Enter your email"
-                            value={formData.email}
-                            onChange={handleChange}
-                          />
-                          <Form.Control.Feedback type="invalid">
-                            Please provide a valid email.
-                          </Form.Control.Feedback>
-                        </Form.Group>
-                      </Col>
-                      <Col md={12} className="mb-3">
-                        <Form.Group controlId="subject">
-                          <Form.Label>Subject</Form.Label>
-                          <Form.Control
-                            required
-                            type="text"
-                            name="subject"
-                            placeholder="What is this regarding?"
-                            value={formData.subject}
-                            onChange={handleChange}
-                          />
-                          <Form.Control.Feedback type="invalid">
-                            Please provide a subject.
-                          </Form.Control.Feedback>
-                        </Form.Group>
-                      </Col>
-                      <Col md={12} className="mb-4">
-                        <Form.Group controlId="message">
-                          <Form.Label>Message</Form.Label>
-                          <Form.Control
-                            required
-                            as="textarea"
-                            name="message"
-                            rows={5}
-                            placeholder="Your message here..."
-                            value={formData.message}
-                            onChange={handleChange}
-                          />
-                          <Form.Control.Feedback type="invalid">
-                            Please provide a message.
-                          </Form.Control.Feedback>
-                        </Form.Group>
-                      </Col>
-                      <Col md={12}>
-                        <Button
-                          variant="primary"
-                          type="submit"
-                          className="btn-primary-custom px-4 py-2"
-                          disabled={submitting}
-                        >
-                          {submitting ? 'Sending...' : 'Send Message'}
-                        </Button>
-                      </Col>
-                    </Row>
-                  </Form>
+            <Col lg={6}>
+              <Card className="shadow-sm border-0 h-100">
+                <Card.Body className="p-4 p-md-5 d-flex flex-column justify-content-center">
+                  <h3 className="mb-4 text-primary-custom">Reach Out</h3>
+                  <p className="mb-4">
+                    Ready to start planning your dream event? We're here to help! 
+                    Send us a message and we'll get back to you within 24 hours.
+                  </p>
+                  
+                  <div className="d-grid gap-3">
+                    <a href="mailto:pearlsandglamour@gmail.com" className="btn btn-primary-custom btn-lg">
+                      <i className="bi bi-envelope-fill me-2"></i>
+                      Email Us
+                    </a>
+                    <a href="https://wa.me/254794788702" target="_blank" rel="noreferrer" className="btn btn-success btn-lg">
+                      <i className="bi bi-whatsapp me-2"></i>
+                      WhatsApp Us
+                    </a>
+                    <a href="tel:+254794788702" className="btn btn-outline-primary btn-lg">
+                      <i className="bi bi-telephone-fill me-2"></i>
+                      Call Us
+                    </a>
+                  </div>
+                  
+                  <div className="mt-4 p-3 bg-light rounded">
+                    <h6 className="mb-2">What to include in your message:</h6>
+                    <ul className="mb-0 small">
+                      <li>Type of event you're planning</li>
+                      <li>Preferred date and time</li>
+                      <li>Expected number of guests</li>
+                      <li>Any specific requirements or themes</li>
+                    </ul>
+                  </div>
                 </Card.Body>
               </Card>
             </Col>

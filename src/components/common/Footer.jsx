@@ -16,7 +16,7 @@ const Footer = () => {
               <a href="https://facebook.com/pearls.n.glamour.events" target="_blank" rel="noreferrer" className="text-white me-3">
                 <i className="bi bi-facebook fs-5"></i>
               </a>
-              <a href="https://instagram.com/pearls_and_glamour_events" target="_blank" rel="noreferrer" className="text-white me-3">
+              <a href="https://instagram.com/pearlsnglamourevents" target="_blank" rel="noreferrer" className="text-white me-3">
                 <i className="bi bi-instagram fs-5"></i>
               </a>
               <a href="https://wa.me/254794788702" target="_blank" rel="noreferrer" className="text-white me-3">
@@ -50,7 +50,7 @@ const Footer = () => {
           <Col md={4}>
             <h5 className="text-uppercase mb-4">Contact Us</h5>
             <p><i className="bi bi-geo-alt me-2"></i> Banda Lane, Nairobi, Kenya</p>
-            <p><i className="bi bi-envelope me-2"></i> pearlsandglamour2@gmail.com</p>
+            <p><i className="bi bi-envelope me-2"></i> pearlsandglamour@gmail.com</p>
             <p><i className="bi bi-telephone me-2"></i> +254 794 788 702</p>
           </Col>
         </Row>

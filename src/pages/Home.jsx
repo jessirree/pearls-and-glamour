@@ -25,6 +25,13 @@ const Home = () => {
     },
   ];
 
+  const handleWhatsAppBooking = () => {
+    const message = "Hello! I'm interested in booking an event with Pearls & Glamour. Could you please provide more information about your services and pricing?";
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/254794788702?text=${encodedMessage}`;
+    window.open(whatsappUrl, '_blank');
+  };
+
   return (
     <div>
       {/* Hero Banner */}
@@ -42,11 +49,14 @@ const Home = () => {
           <p className="lead mb-5">
           We create bespoke and luxury event experiences with elegance, precision and flawless execution!
           </p>
-          <Link to="/booking">
-            <Button variant="outline-light" size="lg" className="cta-button me-3">
-              Book Your Dream Event Today
-            </Button>
-          </Link>
+          <Button 
+            variant="outline-light" 
+            size="lg" 
+            className="cta-button me-3"
+            onClick={handleWhatsAppBooking}
+          >
+            Book Your Dream Event Today
+          </Button>
           <Link to="/photo-gallery">
             <Button variant="outline-light" size="lg" className="cta-button">
               View Our Photo Gallery
@@ -98,11 +108,14 @@ const Home = () => {
               Contact Us
             </Button>
           </Link>
-          <Link to="/booking">
-            <Button variant="outline-light" size="lg" className="cta-button">
-              Book Now
-            </Button>
-          </Link>
+          <Button 
+            variant="outline-light" 
+            size="lg" 
+            className="cta-button"
+            onClick={handleWhatsAppBooking}
+          >
+            Book Now
+          </Button>
         </Container>
       </section>
     </div>

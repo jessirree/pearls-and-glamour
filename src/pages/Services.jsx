@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Card, Button, Modal } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
 
 const servicesData = [
   {
@@ -98,7 +97,6 @@ const servicesData = [
 const Services = () => {
   const [selectedService, setSelectedService] = useState(null);
   const [showModal, setShowModal] = useState(false);
-  const navigate = useNavigate();
 
   const handleShowModal = (service) => {
     setSelectedService(service);
@@ -108,6 +106,14 @@ const Services = () => {
   const handleCloseModal = () => {
     setShowModal(false);
     setSelectedService(null);
+  };
+
+  const handleWhatsAppBooking = (service) => {
+    const message = `Hello! I'm interested in booking your ${service.title} service. Could you please provide more information about pricing and availability?`;
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/254794788702?text=${encodedMessage}`;
+    window.open(whatsappUrl, '_blank');
+    setShowModal(false);
   };
 
   return (
@@ -177,12 +183,10 @@ const Services = () => {
                   Close
                 </Button>
                 <Button
-                  className="btn-primary-custom"
-                  onClick={() => {
-                    setShowModal(false);
-                    navigate('/booking');
-                  }}
+                  className="btn-success"
+                  onClick={() => handleWhatsAppBooking(selectedService)}
                 >
+                  <i className="bi bi-whatsapp me-2"></i>
                   Book This Service
                 </Button>
               </Modal.Footer>
